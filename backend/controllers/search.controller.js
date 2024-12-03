@@ -14,7 +14,7 @@ export async function searchPerson(req, res) {
       $push: {
         searchHistory: {
           id: response.results[0].id,
-          image: esponse.results[0].known_for[0].poster_path,
+          image: response.results[0].known_for[0].poster_path,
           title: response.results[0].name,
           searchType: "person",
           createdAt: new Date(),
@@ -41,8 +41,8 @@ export async function searchMovie(req, res) {
       $push: {
         searchHistory: {
           id: response.results[0].id,
-          image: esponse.results[0].known_for[0].poster_path,
-          title: response.results[0].name,
+          image: response.results[0].poster_path,
+          title: response.results[0].title,
           searchType: "movie",
           createdAt: new Date(),
         },
@@ -68,7 +68,7 @@ export async function searchTv(req, res) {
       $push: {
         searchHistory: {
           id: response.results[0].id,
-          image: esponse.results[0].known_for[0].poster_path,
+          image: response.results[0].poster_path,
           title: response.results[0].name,
           searchType: "tv",
           createdAt: new Date(),
